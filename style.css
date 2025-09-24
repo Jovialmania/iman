@@ -128,7 +128,7 @@ h1 {
 .landscape-card {
   width: 100%;
   max-width: 360px;
-  height: 200px; /* Shorter height like in the screenshot */
+  height: 260px; /* Shorter height like in the screenshot */
   border-radius: 15px;
   overflow: hidden;
   margin: 20px auto;
