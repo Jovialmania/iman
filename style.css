@@ -109,12 +109,15 @@ body {
   padding: 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 1rem; /* Added gap for better spacing */
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-shrink: 0; /* Prevent brand from shrinking */
+  min-width: max-content; /* Ensure brand doesn't get too small */
 }
 
 .nav-logo {
@@ -122,19 +125,24 @@ body {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--primary-blue);
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
 .company-name {
   font-weight: 700;
   color: var(--text-color);
-  font-size: 0.9rem;
+  font-size: 7rem;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.5rem; /* Reduced gap to fit better */
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  justify-content: center; /* Center the menu items */
+  flex: 1; /* Take available space */
+  margin: 0 2rem; /* Added margin for breathing room */
 }
 
 .nav-link {
@@ -142,13 +150,16 @@ body {
   color: var(--text-color);
   font-weight: 500;
   transition: var(--transition);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.8rem; /* Slightly reduced padding */
   border-radius: 5px;
   position: relative;
+  white-space: nowrap; /* Prevent text wrapping */
+  font-size: 0.9rem; /* Slightly smaller font */
 }
 
 .nav-link:hover {
   color: var(--primary-blue);
+  background: rgba(0, 102, 204, 0.1); /* Added background on hover */
 }
 
 .nav-link::after {
@@ -170,13 +181,15 @@ body {
 .nav-cta {
   display: flex;
   align-items: center;
+  flex-shrink: 0; /* Prevent CTA from shrinking */
+  min-width: max-content; /* Ensure CTA doesn't get too small */
 }
 
 .btn {
-  padding: 12px 24px;
+  padding: 10px 20px; /* Slightly reduced padding */
   border: none;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* Slightly smaller font */
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -185,6 +198,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  white-space: nowrap; /* Prevent button text wrapping */
 }
 
 .btn-primary {
@@ -199,7 +213,7 @@ body {
 }
 
 .btn-secondary {
- background: var(--gradient-primary);
+  background: var(--gradient-primary);
   color: white;
   box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
 }
@@ -214,8 +228,8 @@ body {
   background: transparent;
   color: var(--primary-blue);
   border: 2px solid var(--primary-blue);
-  font-size: 0.9rem;
-  padding: 10px 20px;
+  font-size: 0.85rem; /* Slightly smaller font */
+  padding: 8px 16px; /* Reduced padding */
 }
 
 .btn-outline:hover {
@@ -223,44 +237,106 @@ body {
   color: white;
 }
 
-.btn-light {
-  background: white;
-  color: var(--primary-blue);
-  box-shadow: var(--shadow);
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 1.5rem; /* Reduced padding on smaller screens */
+    gap: 0.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem; /* Further reduced gap */
+    margin: 0 1rem;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 0.6rem; /* Further reduced padding */
+    font-size: 0.85rem;
+  }
+  
+  .company-name {
+    font-size: 0.85rem; /* Smaller company name */
+  }
 }
 
-.btn-light:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .nav-menu {
+    display: none; /* Hide menu on mobile */
+  }
+  
+  .nav-cta {
+    display: none; /* Hide CTA button on mobile */
+  }
+  
+  .hamburger {
+    display: flex; /* Show hamburger menu */
+  }
+  
+  .company-name {
+    font-size: 0.8rem; /* Even smaller on mobile */
+  }
+  
+  .nav-brand {
+    gap: 0.5rem; /* Reduced gap in brand */
+  }
 }
 
-.btn-outline-light {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  
+  .company-name {
+    font-size: 0.75rem; /* Smallest size for mobile */
+  }
+  
+  .nav-logo {
+    width: 40px; /* Smaller logo on mobile */
+    height: 40px;
+  }
 }
 
-.btn-outline-light:hover {
-  background: white;
-  color: var(--primary-blue);
-}
-
-.btn-full {
-  width: 100%;
-}
-
-.hamburger {
-  display: none;
+/* Mobile Menu when active */
+.nav-menu.active {
+  display: flex;
   flex-direction: column;
-  cursor: pointer;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--container-bg);
+  box-shadow: var(--shadow);
+  padding: 1rem 0;
+  gap: 0;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background: var(--text-color);
-  margin: 3px 0;
-  transition: var(--transition);
+.nav-menu.active .nav-link {
+  display: block;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  text-align: center;
+}
+
+.nav-menu.active .nav-link::after {
+  display: none; /* Remove underline effect in mobile menu */
+}
+
+/* Hamburger animation */
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Hero Section with Background Image */
@@ -910,7 +986,6 @@ body {
   height: 80px;
   border-radius: 50%;
   margin-bottom: 1rem;
-  border: 2px solid var(--primary-blue);
 }
 
 .footer-brand h3 {
