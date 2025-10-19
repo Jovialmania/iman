@@ -848,6 +848,17 @@ body {
   flex-wrap: wrap;
 }
 
+.cta-buttons .btn {
+  background: white;
+  color: var(--primary-blue); /* Blue text on white background */
+  border: 2px solid white;
+}
+
+.cta-buttons .btn:hover {
+  background: var(--primary-blue);
+  color: white;
+}
+
 /* Contact Section */
 .contact-section {
   padding: 100px 0;
