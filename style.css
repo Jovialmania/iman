@@ -887,7 +887,7 @@ body {
   box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
 
-/* Footer */
+/* Footer - Desktop Layout (Keep as is) */
 .main-footer {
   background: var(--container-bg);
   padding: 3rem 0 1rem;
@@ -1013,7 +1013,53 @@ body {
   color: var(--primary-light);
 }
 
-/* Responsive Design */
+/* Mobile Footer Layout */
+@media (max-width: 768px) {
+  .main-footer {
+    text-align: center;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-section ul {
+    padding: 0;
+  }
+
+  .contact-info p {
+    justify-content: center;
+  }
+}
+
+/* Keep your existing responsive styles for other sections */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 3rem;
@@ -1072,14 +1118,6 @@ body {
   }
   
   .contact-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer-links {
     grid-template-columns: 1fr;
   }
   
