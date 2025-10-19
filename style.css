@@ -128,7 +128,7 @@ body {
 .company-name {
   font-weight: 700;
   color: var(--text-color);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .nav-menu {
